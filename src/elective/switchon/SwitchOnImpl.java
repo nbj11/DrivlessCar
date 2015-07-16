@@ -121,7 +121,9 @@ public class SwitchOnImpl implements SwitchOn {
         }
         ClientResponse response = myPublisher.type(MediaType.APPLICATION_XML).post(ClientResponse.class, CopalClient.event(stateEventTypeName,state));
         System.out.println(response.toString());
-        return true;    }
+        return true;    
+        
+    }
 
     @Override
     public String getState() {
