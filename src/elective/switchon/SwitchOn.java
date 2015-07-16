@@ -11,14 +11,16 @@ import javax.jws.WebMethod;
  *
  * @author daniele
  */
+
 public interface SwitchOn {
    
-    @WebMethod(operationName = "swtichon")
-    public boolean on();
-
-    @WebMethod(operationName = "switchoff")
-    public boolean off();
     
+	@WebMethod(operationName = "swtichon") boolean switchon();
+
+    
+	@WebMethod(operationName = "switchoff") boolean switchoff();
+    
+        
     @WebMethod 
     public String getState();
     

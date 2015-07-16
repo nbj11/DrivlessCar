@@ -10,10 +10,13 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
+
 import copal.CopalClient;
+
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.swing.JOptionPane;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -26,8 +29,9 @@ public class SwitchOnImpl implements SwitchOn {
     private String state;
     private String name;
 
-    public static final String s0 = "s0";   //  initial-final
-    public static final String s1 = "s1";   //  car switched on
+    public static final String s0 = "off";   //  initial-final
+    public static final String s1 = "on";   //  car switched on
+    
 
     static String stateEventTypeName;
     static String publisherName;
@@ -93,28 +97,37 @@ public class SwitchOnImpl implements SwitchOn {
     }
 
     @Override
-    public boolean on() {
+    public boolean switchon() {
         System.out.println(name + " switching on car");
         state = s1;
         
         ClientResponse response = myPublisher.type(MediaType.APPLICATION_XML).post(ClientResponse.class, CopalClient.event(stateEventTypeName,state));
-	System.out.println(response.toString());
+        System.out.println(response.toString());
         return true;
     }
 
     @Override
-    public boolean off() {
+    public boolean switchoff() {
         System.out.println(name + " switching off car");
-        state = s0;
+        String s = JOptionPane.showInputDialog("Scegli s0 o s1");
         
+        if(s.equals("s0")){
+        	state = s0;
+        	System.out.println("vado a s0");
+        }
+        else {
+        	state = s1;
+        	System.out.println("vado a s1");
+        }
         ClientResponse response = myPublisher.type(MediaType.APPLICATION_XML).post(ClientResponse.class, CopalClient.event(stateEventTypeName,state));
-	System.out.println(response.toString());
+        System.out.println(response.toString());
         return true;    }
 
     @Override
     public String getState() {
         return state;
     }
+
 
 
 }

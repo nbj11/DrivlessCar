@@ -29,7 +29,7 @@ public class ServicesPublisher {
              *                                  |
              * */
             String endpoint1 = endpointBase + "/SwitchOn";
-            Endpoint ep = Endpoint.publish(endpoint1, new SwitchOnImpl("SwitchOnService"));
+            Endpoint ep = Endpoint.publish(endpoint1, new SwitchOnImpl("SwitchOn"));
             System.out.println("Web service published @ " + endpoint1);
 
             
