@@ -31,16 +31,16 @@ public class ServicesPublisher {
              *                                 /|\
              *                                  |
              * */
-            String endpoint1 = endpointBase + "/SwitchOn";
+            /*String endpoint1 = endpointBase + "/SwitchOn";
             Endpoint ep = Endpoint.publish(endpoint1, new SwitchOnImpl("SwitchOn"));
             System.out.println("Web service published @ " + endpoint1);
-
+             */
             String endpoint2 = endpointBase + "/Open";
-            Endpoint ep2 = Endpoint.publish(endpoint1, new OpenImpl("Open"));
+            Endpoint ep2 = Endpoint.publish(endpoint2, new OpenImpl("Open"));
             System.out.println("Web service published @ " + endpoint2);
             
             String endpoint3 = endpointBase + "/Close";
-            Endpoint ep3 = Endpoint.publish(endpoint1, new CloseImpl("Close"));
+            Endpoint ep3 = Endpoint.publish(endpoint3, new CloseImpl("Close"));
             System.out.println("Web service published @ " + endpoint3);
 
 

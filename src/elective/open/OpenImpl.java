@@ -1,5 +1,6 @@
 package elective.open;
 
+import javax.jws.WebService;
 import javax.ws.rs.core.MediaType;
 
 import com.sun.jersey.api.client.Client;
@@ -10,6 +11,7 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 import copal.CopalClient;
 
+@WebService(serviceName = "OpenImpl")
 public class OpenImpl implements Open {
 
 

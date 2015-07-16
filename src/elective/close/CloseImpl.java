@@ -1,5 +1,6 @@
 package elective.close;
 
+import javax.jws.WebService;
 import javax.ws.rs.core.MediaType;
 
 import com.sun.jersey.api.client.Client;
@@ -10,6 +11,7 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 import copal.CopalClient;
 
+@WebService(serviceName = "CloseImpl")
 public class CloseImpl implements Close {
 
 	private String state;
